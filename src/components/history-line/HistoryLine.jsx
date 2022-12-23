@@ -2,20 +2,20 @@ import React from 'react';
 import { Grid, Icon, Segment } from 'semantic-ui-react';
 
 function HistoryLine(props) {
-	const { isExpense, gridColumnLabel, gridColumnValue } = props;
+	const { id, isExpense, label, value, deleteLineItem, editLineItem } = props;
 	return (
 		<Segment color={isExpense ? 'red' : 'green'}>
 			<Grid columns={3} textAlign="right">
 				<Grid.Row>
 					<Grid.Column width={10} textAlign="left">
-						{gridColumnLabel}
+						{label}
 					</Grid.Column>
 					<Grid.Column width={3} textAlign="right">
-						{gridColumnValue}
+						{value}
 					</Grid.Column>
 					<Grid.Column width={3}>
-						<Icon name="edit" />
-						<Icon name="delete" />
+						<Icon name="edit" onClick={() => editLineItem(id)} />
+						<Icon name="delete" onClick={() => deleteLineItem(id)} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>
