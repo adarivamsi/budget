@@ -11,7 +11,7 @@ function HistoryLine(props) {
 						{label}
 					</Grid.Column>
 					<Grid.Column width={3} textAlign="right">
-						{value}
+						${value}
 					</Grid.Column>
 					<Grid.Column width={3}>
 						<Icon name="edit" onClick={() => editLineItem(id)} />
