@@ -1,3 +1,3 @@
-import NewTransactionFrom from "./NewTransactionFrom";
+import NewTransactionFrom from "./NewTransactionForm";
 
 export default NewTransactionFrom;

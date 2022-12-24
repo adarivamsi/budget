@@ -17,8 +17,9 @@ module.exports = {
 		'import/no-cycle': [
 			2,
 			{
-				maxDepth: 1
+				maxDepth: 1,
 			},
 		],
+		'no-param-reassign': ['error', { props: false }],
 	},
 };

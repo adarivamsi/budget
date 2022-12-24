@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Grid, Icon, Segment } from 'semantic-ui-react';
+import { deleteLineItem } from '../../reducers/lineItemsSlice';
 
 function HistoryLine(props) {
-	const { id, isExpense, label, value, deleteLineItem, editLineItem } = props;
+	const { id, isExpense, label, value, editLineItem } = props;
+	const dispatch = useDispatch();
 	return (
 		<Segment color={isExpense ? 'red' : 'green'}>
 			<Grid columns={3} textAlign="right">
@@ -14,8 +17,8 @@ function HistoryLine(props) {
 						${value}
 					</Grid.Column>
 					<Grid.Column width={3}>
-						<Icon name="edit" onClick={() => editLineItem(id)} />
-						<Icon name="delete" onClick={() => deleteLineItem(id)} />
+						<Icon name="edit" onClick={() => dispatch(editLineItem(id))} />
+						<Icon name="delete" onClick={() => dispatch(deleteLineItem(id))} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>
