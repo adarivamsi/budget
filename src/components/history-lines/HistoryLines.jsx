@@ -3,7 +3,7 @@ import { Container } from 'semantic-ui-react';
 import { HistoryLine } from '..';
 
 function HistoryLines(props) {
-	const { lineItems, editLineItem } = props;
+	const { lineItems } = props;
 	return (
 		<Container>
 			{lineItems.map((lineItem) => (
@@ -13,7 +13,6 @@ function HistoryLines(props) {
 					isExpense={lineItem.isExpense}
 					label={lineItem.label}
 					value={lineItem.value}
-					editLineItem={editLineItem}
 				/>
 			))}
 		</Container>

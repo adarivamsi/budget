@@ -9,7 +9,6 @@ function NewTransactionFrom() {
 	const [label, setLabel] = useState('');
 	const [value, setValue] = useState();
 	const [isExpense, setIsExpense] = useState(true);
-	// const { addLineItem } = props;
 	const dispatch = useDispatch();
 
 	const addNewLineItem = () => {

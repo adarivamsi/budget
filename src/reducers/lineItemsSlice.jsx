@@ -36,12 +36,12 @@ export const lineItemsSlice = createSlice({
 			return retrievedLineItems;
 		},
 		editLineItem: (state, action) => {
-			if (action.payload) {
-				const index = state.findIndex((lineItem) => lineItem.id === action.payload);
-				const lineItem = state[index];
-				return lineItem;
-			}
-			return state;
+			const newLineItems = [...state];
+			const index = newLineItems.findIndex(
+				(lineItem) => lineItem.id === action.payload.id
+			);
+			newLineItems[index] = { ...action.payload.lineItem };
+			return newLineItems;
 		},
 	},
 });

@@ -1,0 +1,22 @@
+{
+  "lineItems": [
+    {
+      "id": 1,
+      "label": "JC Penney",
+      "value": 10,
+      "isExpense": true
+    },
+    {
+      "id": 2,
+      "label": "Walmart Paycheck",
+      "value": 100,
+      "isExpense": false
+    },
+    {
+      "id": 3,
+      "label": "Marshalls",
+      "value": 10,
+      "isExpense": true
+    }
+  ]
+}
