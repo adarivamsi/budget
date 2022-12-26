@@ -1,30 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialStateValue = [
-	{
-		id: 1,
-		label: 'JC Penney',
-		value: 10,
-		isExpense: true,
-	},
-	{
-		id: 2,
-		label: 'Walmart Paycheck',
-		value: 100,
-		isExpense: false,
-	},
-	{
-		id: 3,
-		label: 'Marshalls',
-		value: 10,
-		isExpense: true,
-	},
-];
+const initialStateValue = [];
 
 export const lineItemsSlice = createSlice({
 	name: 'lineItems',
 	initialState: initialStateValue,
 	reducers: {
+		getLineItems: (state) => state,
+		populateLineItems: (state, action) => action.payload,
+		populateLineItemDetails: (state, action) => {
+			const newLineItems = [...state];
+			const index = newLineItems.findIndex(
+				(lineItem) => lineItem.id === action.payload.id
+			);
+			newLineItems[index] = { ...newLineItems[index], ...action.payload.data };
+			return newLineItems;
+		},
 		addLineItem: (state, action) => {
 			const newLineItems = state.concat({ ...action.payload });
 			return newLineItems;
@@ -40,13 +31,19 @@ export const lineItemsSlice = createSlice({
 			const index = newLineItems.findIndex(
 				(lineItem) => lineItem.id === action.payload.id
 			);
-			newLineItems[index] = { ...action.payload.lineItem };
+			newLineItems[index] = { ...newLineItems[index], ...action.payload.data };
 			return newLineItems;
 		},
 	},
 });
 
-export const { addLineItem, deleteLineItem, editLineItem } =
-	lineItemsSlice.actions;
+export const {
+	getLineItems,
+	populateLineItems,
+	populateLineItemDetails,
+	addLineItem,
+	deleteLineItem,
+	editLineItem,
+} = lineItemsSlice.actions;
 
 export default lineItemsSlice.reducer;

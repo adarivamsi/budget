@@ -1,22 +1,42 @@
 {
-  "lineItems": [
-    {
-      "id": 1,
-      "label": "JC Penney",
-      "value": 10,
-      "isExpense": true
-    },
-    {
-      "id": 2,
-      "label": "Walmart Paycheck",
-      "value": 100,
-      "isExpense": false
-    },
-    {
-      "id": 3,
-      "label": "Marshalls",
-      "value": 10,
-      "isExpense": true
-    }
-  ]
+	"lineItems": [
+		{
+			"id": 1,
+			"label": "JC Penney"
+		},
+		{
+			"id": 2,
+			"label": "Walmart Paycheck"
+		},
+		{
+			"id": 3,
+			"label": "Marshalls"
+		},
+		{
+			"label": "JC Penney Bill",
+			"id": 4
+		}
+	],
+	"lineValues": [
+		{
+			"id": 1,
+			"value": 10,
+			"isExpense": true
+		},
+		{
+			"id": 2,
+			"value": 100,
+			"isExpense": false
+		},
+		{
+			"id": 3,
+			"value": 10,
+			"isExpense": true
+		},
+		{
+			"value": 100,
+			"isExpense": true,
+			"id": 4
+		}
+	]
 }

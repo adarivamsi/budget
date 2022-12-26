@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container } from 'semantic-ui-react';
 import './App.css';
 import {
@@ -8,8 +8,9 @@ import {
 	HistoryLines,
 	ModalEdit,
 	NewTransactionForm,
-	StatisticVals,
+	StatisticVals
 } from './components';
+import { getLineItems } from './reducers/lineItemsSlice';
 
 function App() {
 	const [balance, setBalance] = useState(0.0);
@@ -19,10 +20,15 @@ function App() {
 	const lineItems = useSelector((state) => state.lineItems);
 	const { isOpen, id } = useSelector((state) => state.modals);
 
+	const dispatch = useDispatch();
+	useEffect(() => {
+	  dispatch(getLineItems());
+	}, [dispatch]);
+
 	useEffect(() => {
 		const index = lineItems.findIndex((lItem) => lItem.id === id);
 		setLineItem(lineItems[index]);
-	}, [isOpen, id]);
+	}, [isOpen, id, lineItems]);
 
 	useEffect(() => {
 		let totalIncomes = 0;
